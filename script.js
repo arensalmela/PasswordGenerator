@@ -87,24 +87,87 @@ function passwordOptions() {
     return;
   }
 
-  if (length <= 8 || length >= 128) {
+  if (length < 8 || length > 128) {
     alert("Please select a number between 8 and 128.");
     return;
   }
-  var lowercaseletters = confirm(
+  var haslowercaseletters = confirm(
     "Would you like lowercase letters in your password?"
   );
 
-  var uppercaseletters = confirm(
+  var hasuppercaseletters = confirm(
     "Would you like uppercase letters in your password?"
   );
 
-  var specialcharacters = confirm(
+  var hasspecialcharacters = confirm(
     "Would you like special characters in your password?"
   );
-  var specialcharacters = confirm(
+  var hasnumbers = confirm(
     "Would you like special characters in your password?"
   );
+
+  if (
+    haslowercaseletters === false &&
+    hasuppercaseletters === false &&
+    hasspecialcharacters === false &&
+    hasnumbers === false
+  ) {
+    alert("Please select at least one character type.");
+    return;
+  }
+
+  var passwordObject = {
+    haslowercaseletters: haslowercaseletters,
+    hasuppercaseletters: hasuppercaseletters,
+    hasspecialcharacters: hasspecialcharacters,
+    hasnumbers: hasnumbers,
+    length: length,
+  };
+  return passwordObject;
+}
+
+function getRandom(arr) {
+  var randomindex = Math.floor(Math.random() * arr.length);
+  var randomelement = arr[randomindex];
+  return randomelement;
+}
+
+function generatePassword() {
+  var options = passwordOptions();
+  var result = [];
+  var possiblecharacters = [];
+  var definitecharacters = [];
+
+  if (options.haslowercaseletters) {
+    possiblecharacters = possiblecharacters.concat(lowercaseletters);
+    definitecharacters.push(getRandom(lowercaseletters));
+  }
+
+  if (options.hasuppercaseletters) {
+    possiblecharacters = possiblecharacters.concat(uppercaseletters);
+    definitecharacters.push(getRandom(uppercaseletters));
+  }
+
+  if (options.hasspecialcharacters) {
+    possiblecharacters = possiblecharacters.concat(specialcharacters);
+    definitecharacters.push(getRandom(specialcharacters));
+  }
+
+  if (options.hasnumbers) {
+    possiblecharacters = possiblecharacters.concat(numbers);
+    definitecharacters.push(getRandom(numbers));
+  }
+
+  for (var i = 0; i < options.length; i++) {
+    var possiblecharacter = getRandom(possiblecharacters);
+    result.push(possiblecharacter);
+  }
+
+  for (var i = 0; i < definitecharacters.length; i++) {
+    result[i] = definitecharacters[i];
+  }
+
+  return result.join("");
 }
 
 // Assignment Code
