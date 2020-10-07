@@ -81,16 +81,31 @@ function passwordOptions() {
   var length = parseInt(
     prompt("Please select the number of characters for your password.")
   );
-}
 
-if (isNaN(length) === true) {
-  alert("Please imput a number!");
-  return;
-}
+  if (isNaN(length) === true) {
+    alert("Please imput a number!");
+    return;
+  }
 
-if (length < 8 || length > 128)
-  alert("Please select a number between 8 and 128.");
-return;
+  if (length <= 8 || length >= 128) {
+    alert("Please select a number between 8 and 128.");
+    return;
+  }
+  var lowercaseletters = confirm(
+    "Would you like lowercase letters in your password?"
+  );
+
+  var uppercaseletters = confirm(
+    "Would you like uppercase letters in your password?"
+  );
+
+  var specialcharacters = confirm(
+    "Would you like special characters in your password?"
+  );
+  var specialcharacters = confirm(
+    "Would you like special characters in your password?"
+  );
+}
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
