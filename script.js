@@ -74,7 +74,23 @@ var specialcharacters = [
   "@",
   "~",
 ];
+
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+function passwordOptions() {
+  var length = parseInt(
+    prompt("Please select the number of characters for your password.")
+  );
+}
+
+if (isNaN(length) === true) {
+  alert("Please imput a number!");
+  return;
+}
+
+if (length < 8 || length > 128)
+  alert("Please select a number between 8 and 128.");
+return;
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
