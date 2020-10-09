@@ -91,39 +91,41 @@ function passwordOptions() {
     alert("Please select a number between 8 and 128.");
     return;
   }
-  let haslowercaseletters = confirm(
+  
+  let UserSelectedLwrCase = confirm(
     "Would you like lowercase letters in your password?"
   );
 
-  let hasuppercaseletters = confirm(
+  let UserSelectedUprCase = confirm(
     "Would you like uppercase letters in your password?"
   );
 
-  let hasspecialcharacters = confirm(
+  let UserSelectedSpclChar = confirm(
     "Would you like special characters in your password?"
   );
-  let hasnumbers = confirm(
+  let UserSelectedNmbr = confirm(
     "Would you like special characters in your password?"
   );
+  
 
   if (
-    haslowercaseletters === false &&
-    hasuppercaseletters === false &&
-    hasspecialcharacters === false &&
-    hasnumbers === false
+    UserSelectedLwrCase === false &&
+    UserSelectedUprCase === false &&
+    UserSelectedSpclChar === false &&
+    UserSelectedNmbr === false
   ) {
     alert("Please select at least one character type.");
     return;
   }
 
-  let passwordObject = {
-    haslowercaseletters,
-    hasuppercaseletters,
-    hasspecialcharacters,
-    hasnumbers,
+  let SelectedRequirements = {
+    UserSelectedLwrCase,
+    UserSelectedUprCase,
+    UserSelectedSpclChar,
+    UserSelectedNmbr,
     length,
   };
-  return passwordObject;
+  return SelectedRequirements;
 }
 
 function Random(arr) {
@@ -138,22 +140,22 @@ function generatePassword() {
   let possiblecharacters = [];
   let definitecharacters = [];
 
-  if (options.haslowercaseletters) {
+  if (options.UserSelectedLwrCase) {
     possiblecharacters = possiblecharacters.concat(lowercaseletters);
     definitecharacters.push(Random(lowercaseletters));
   }
 
-  if (options.hasuppercaseletters) {
+  if (options.UserSelectedUprCase) {
     possiblecharacters = possiblecharacters.concat(uppercaseletters);
     definitecharacters.push(Random(uppercaseletters));
   }
 
-  if (options.hasspecialcharacters) {
+  if (options.UserSelectedSpclChar) {
     possiblecharacters = possiblecharacters.concat(specialcharacters);
     definitecharacters.push(Random(specialcharacters));
   }
 
-  if (options.hasnumbers) {
+  if (options.UserSelectedNmbr) {
     possiblecharacters = possiblecharacters.concat(numbers);
     definitecharacters.push(Random(numbers));
   }
