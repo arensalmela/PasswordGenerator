@@ -1,4 +1,4 @@
-var lowercaseletters = [
+const lowercaseletters = [
   "a",
   "b",
   "c",
@@ -26,7 +26,7 @@ var lowercaseletters = [
   "y",
   "z",
 ];
-var uppercaseletters = [
+const uppercaseletters = [
   "A",
   "B",
   "C",
@@ -54,7 +54,7 @@ var uppercaseletters = [
   "Y",
   "Z",
 ];
-var specialcharacters = [
+const specialcharacters = [
   "!",
   "#",
   "$",
@@ -75,10 +75,10 @@ var specialcharacters = [
   "~",
 ];
 
-var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 function passwordOptions() {
-  var length = parseInt(
+  let length = parseInt(
     prompt("Please select the number of characters for your password.")
   );
 
@@ -91,18 +91,18 @@ function passwordOptions() {
     alert("Please select a number between 8 and 128.");
     return;
   }
-  var haslowercaseletters = confirm(
+  let haslowercaseletters = confirm(
     "Would you like lowercase letters in your password?"
   );
 
-  var hasuppercaseletters = confirm(
+  let hasuppercaseletters = confirm(
     "Would you like uppercase letters in your password?"
   );
 
-  var hasspecialcharacters = confirm(
+  let hasspecialcharacters = confirm(
     "Would you like special characters in your password?"
   );
-  var hasnumbers = confirm(
+  let hasnumbers = confirm(
     "Would you like special characters in your password?"
   );
 
@@ -116,54 +116,54 @@ function passwordOptions() {
     return;
   }
 
-  var passwordObject = {
-    haslowercaseletters: haslowercaseletters,
-    hasuppercaseletters: hasuppercaseletters,
-    hasspecialcharacters: hasspecialcharacters,
-    hasnumbers: hasnumbers,
-    length: length,
+  let passwordObject = {
+    haslowercaseletters,
+    hasuppercaseletters,
+    hasspecialcharacters,
+    hasnumbers,
+    length,
   };
   return passwordObject;
 }
 
-function getRandom(arr) {
-  var randomindex = Math.floor(Math.random() * arr.length);
-  var randomelement = arr[randomindex];
+function Random(arr) {
+  let randomindex = Math.floor(Math.random() * arr.length);
+  let randomelement = arr[randomindex];
   return randomelement;
 }
 
 function generatePassword() {
-  var options = passwordOptions();
-  var result = [];
-  var possiblecharacters = [];
-  var definitecharacters = [];
+  let options = passwordOptions();
+  let result = [];
+  let possiblecharacters = [];
+  let definitecharacters = [];
 
   if (options.haslowercaseletters) {
     possiblecharacters = possiblecharacters.concat(lowercaseletters);
-    definitecharacters.push(getRandom(lowercaseletters));
+    definitecharacters.push(Random(lowercaseletters));
   }
 
   if (options.hasuppercaseletters) {
     possiblecharacters = possiblecharacters.concat(uppercaseletters);
-    definitecharacters.push(getRandom(uppercaseletters));
+    definitecharacters.push(Random(uppercaseletters));
   }
 
   if (options.hasspecialcharacters) {
     possiblecharacters = possiblecharacters.concat(specialcharacters);
-    definitecharacters.push(getRandom(specialcharacters));
+    definitecharacters.push(Random(specialcharacters));
   }
 
   if (options.hasnumbers) {
     possiblecharacters = possiblecharacters.concat(numbers);
-    definitecharacters.push(getRandom(numbers));
+    definitecharacters.push(Random(numbers));
   }
 
-  for (var i = 0; i < options.length; i++) {
-    var possiblecharacter = getRandom(possiblecharacters);
+  for (let i = 0; i < options.length; i++) {
+    let possiblecharacter = Random(possiblecharacters);
     result.push(possiblecharacter);
   }
 
-  for (var i = 0; i < definitecharacters.length; i++) {
+  for (let i = 0; i < definitecharacters.length; i++) {
     result[i] = definitecharacters[i];
   }
 
