@@ -1,5 +1,11 @@
 # PasswordGenerator
 
+## Project link https://arensalmela.github.io/PasswordGenerator/
+
+###### collaborated with https://github.com/DustinErwin , https://github.com/Ewager1 , https://github.com/ReindeerCode , and https://github.com/mdjonestwo
+
+## Screenshots posted below.
+
 ## User Story
 
 - AS AN employee with access to sensitive data
@@ -63,3 +69,7 @@ Repository follows best practices for class/id naming conventions, indentation, 
 Repository contains multiple descriptive commit messages.
 
 Repository contains quality README file with description, screenshot, and link to deployed application.
+
+![Password ScreenShot 1](Screenshots/PasswordSS1.png)
+![Password ScreenShot 2](Screenshots/PasswordSS2.png)
+![Password ScreenShot 3](Screenshots/PasswordSS3.png)

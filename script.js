@@ -1,4 +1,4 @@
-
+// collaborated with https://github.com/DustinErwin , https://github.com/Ewager1 , https://github.com/ReindeerCode , and https://github.com/mdjonestwo
 
 const lowercaseletters = [
   "a",
@@ -147,7 +147,8 @@ function generatePassword() {
 
   // Statements add to possible characters array based off of user input. 
   // If user selected character type, one character will be pushed to definite character array.
-
+  //Kept console logs to visualize concatenation.
+  
   if (options.UserSelectedLwrCase) {
     possiblecharacters = possiblecharacters.concat(lowercaseletters);
     definitecharacters.push(Random(lowercaseletters));
